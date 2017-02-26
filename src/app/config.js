@@ -1,7 +1,10 @@
 angular
     .module('bit')
 
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, jwtInterceptorProvider, $uibTooltipProvider, toastrConfig) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, jwtInterceptorProvider,
+        $uibTooltipProvider, toastrConfig, $locationProvider, $templateFactoryProvider) {
+        //$templateFactoryProvider.shouldUnsafelyUseHttp(true);
+        $locationProvider.hashPrefix('');
         jwtInterceptorProvider.urlParam = 'access_token2';
         var refreshPromise;
         jwtInterceptorProvider.tokenGetter = /*@ngInject*/ function (config, appSettings, tokenService, apiService, jwtHelper, $q) {
